@@ -1,27 +1,19 @@
 <template>
     <AuthBase>
-        <h2>{{ $t('register') }}</h2>
-
-        <div v-if="guestAccount" class="mb-3 guest-account-warning">
-            <Icon icon="fa6-solid:circle-exclamation" class="warning-icon small" /> 
-            {{ $t('already-have-guest-account-register-warning') }}
-        </div>
+        <h2>Register</h2>
 
         <form @submit.prevent="submitRegister">
             <div class="form-group">
-                <label for="username">{{ $t('username') }}</label>
-                <span class="d-flex flex-row">
+                <label for="username">Username</label>
+                <span flex flex-row>
                     <input
                         id="username" 
                         v-model="register.username" 
                         type="text" 
                         name="username"
-                        :placeholder="$t('username')" 
+                        placeholder="Username" 
                         :class="{ invalid: hasError('username') }"
                     />
-                    <Tooltip :text="$t('random-name')" class="dice-button">
-                        <Icon icon="fa-solid:dice" @click="generateRandomName" />
-                    </Tooltip>
                 </span>
                 <BaseFormError name="username" />
             </div>
@@ -30,15 +22,15 @@
                 v-model="register.email"
                 type="text" 
                 name="email" 
-                :label="$t('email')"
-                :placeholder="$t('email')"  />
+                label="Email"
+                placeholder="Email"  />
             <SimpleInput 
                 id="password"  
                 v-model="register.password"
                 type="password" 
                 name="password" 
-                :label="$t('password')"
-                :placeholder="$t('password')" />
+                label="Password"
+                placeholder="Password" />
             <SimpleInput 
                 id="password_confirmation" 
                 v-model="register.password_confirmation" 
